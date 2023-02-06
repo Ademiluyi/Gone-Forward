@@ -1,2 +1,2 @@
 # Gone-Forward
-Ade has "Gone-Forward". (a self-development project)
+a self-development project.
