@@ -101,7 +101,9 @@ func intro() {
 	fmt.Println(game_rules)
 }
 
-// An extensible solution.
+/*
+This function checks for a winner.
+*/
 func (game Game) check_winner(player, play string) bool {
 	uncast_row, uncast_column := convert_to_coords(play)
 	row, column := int(uncast_row), int(uncast_column)
@@ -242,6 +244,9 @@ func (game Game) check_winner(player, play string) bool {
 	return false
 }
 
+/*
+This function gets and sets information on the player, including player names & assigned game piece.
+*/
 func (game *Game) get_and_set_players() []string {
 	game_piece := []string{"x", "o"}
 	rand.Seed(time.Now().UnixNano())
@@ -276,6 +281,9 @@ func (game *Game) get_and_set_players() []string {
 	return player_names
 }
 
+/*
+This function gets a play from the user and stamps it on the board.
+*/
 func (game *Game) get_and_stamp_piece(player string) string {
 	reader := bufio.NewReader(os.Stdin)
 	valid := false
@@ -300,6 +308,9 @@ func (game *Game) get_and_stamp_piece(player string) string {
 	return trimmedPlay
 }
 
+/*
+This function converts a play to a corresponding coordinate on the 2d representation of the game board.
+*/
 func convert_to_coords(play string) (uint8, uint8) {
 	var ascii_one uint8
 	ascii_one = 49
@@ -310,6 +321,9 @@ func convert_to_coords(play string) (uint8, uint8) {
 	return row, column
 }
 
+/*
+This function checks if a play is valid.
+*/
 func (game *Game) is_valid(play string) (bool, string) {
 
 	var zero uint8
@@ -334,9 +348,7 @@ func (game *Game) is_valid(play string) (bool, string) {
 }
 
 /*
-	The code below will print Hello World
-
-to the screen, and it is amazing
+This function prints the game board.
 */
 func (game Game) print_game_board() {
 	fmt.Println()
